@@ -1,0 +1,1258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Start Your Dropshipping Store Today — Powered by Spocket</title>
+<link href="https://fonts.googleapis.com/css2?family=Cabinet+Grotesk:wght@400;500;700;800;900&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root {
+  --black: #080c08;
+  --green: #00e85a;
+  --green-dim: #00b846;
+  --green-glow: rgba(0,232,90,0.18);
+  --white: #f4f9f4;
+  --off: #e8f0e8;
+  --muted: #6b7d6b;
+  --card-bg: #0f150f;
+  --border: rgba(0,232,90,0.15);
+  --red: #ff4444;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: 'Cabinet Grotesk', sans-serif;
+  font-weight: 400;
+  overflow-x: hidden;
+}
+
+/* NOISE */
+body::after {
+  content:'';
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:1000;
+  opacity:0.025;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ── TICKER ── */
+.ticker-wrap {
+  background: var(--green);
+  color: var(--black);
+  padding: 9px 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.ticker-inner {
+  display: inline-block;
+  animation: tick 30s linear infinite;
+}
+.ticker-inner span {
+  font-weight: 800;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0 2.5rem;
+}
+.ticker-inner span::before { content: '◆  '; }
+@keyframes tick { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+
+/* ── NAV ── */
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.2rem 5vw;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  background: rgba(8,12,8,0.93);
+  backdrop-filter: blur(20px);
+}
+.nav-logo {
+  font-size: 1.5rem;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  color: var(--green);
+  text-decoration: none;
+}
+.nav-logo span { color: var(--white); }
+.nav-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--black);
+  background: var(--green);
+  padding: 0.55rem 1.3rem;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.15s;
+}
+.nav-pill:hover { background: #33ee77; transform: translateY(-1px); }
+
+/* ── HERO ── */
+.hero {
+  min-height: 94vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 4rem;
+  padding: 5rem 5vw;
+  position: relative;
+  overflow: hidden;
+}
+.hero-bg-glow {
+  position: absolute;
+  left: -15vw;
+  top: 10%;
+  width: 70vw;
+  height: 70vw;
+  background: radial-gradient(ellipse, rgba(0,232,90,0.06) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: rgba(0,232,90,0.08);
+  border: 1px solid var(--border);
+  color: var(--green);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.4rem 0.9rem;
+  margin-bottom: 1.8rem;
+}
+.eyebrow-dot {
+  width: 7px; height: 7px;
+  background: var(--green);
+  border-radius: 50%;
+  animation: blink 2s ease-in-out infinite;
+}
+@keyframes blink { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.4;transform:scale(0.6)} }
+
+h1 {
+  font-family: 'Cabinet Grotesk', sans-serif;
+  font-size: clamp(3rem, 5.5vw, 5.6rem);
+  font-weight: 900;
+  line-height: 1.0;
+  letter-spacing: -0.04em;
+  margin-bottom: 1.6rem;
+}
+h1 .serif {
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--green);
+}
+h1 .outline {
+  -webkit-text-stroke: 2px var(--white);
+  color: transparent;
+}
+
+.hero-sub {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: rgba(244,249,244,0.6);
+  max-width: 48ch;
+  margin-bottom: 2.4rem;
+}
+
+.cta-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: flex-start;
+  margin-bottom: 2.8rem;
+}
+
+.btn-main {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  background: var(--green);
+  color: var(--black);
+  font-size: 1.05rem;
+  font-weight: 900;
+  letter-spacing: -0.01em;
+  padding: 1.1rem 2.4rem;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s;
+}
+.btn-main::before {
+  content:'';
+  position:absolute;
+  inset:0;
+  background: #33ee77;
+  transform: translateX(-101%);
+  transition: transform 0.3s ease;
+}
+.btn-main:hover::before { transform: translateX(0); }
+.btn-main:hover { transform: translateY(-2px); }
+.btn-main > * { position: relative; z-index: 1; }
+.btn-main .arrow { transition: transform 0.2s; }
+.btn-main:hover .arrow { transform: translateX(4px); }
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgba(244,249,244,0.55);
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(244,249,244,0.15);
+  padding-bottom: 0.2rem;
+  transition: color 0.2s, border-color 0.2s;
+}
+.btn-ghost:hover { color: var(--green); border-color: var(--green); }
+
+.trust-row {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.78rem;
+  color: rgba(244,249,244,0.4);
+  font-weight: 500;
+}
+.trust-item svg { color: var(--green); flex-shrink: 0; }
+
+/* ── PRODUCT MOCKUP (CSS only) ── */
+.hero-visual {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  animation: float 6s ease-in-out infinite;
+}
+@keyframes float {
+  0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)}
+}
+
+.mock-window {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  overflow: hidden;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(0,232,90,0.08);
+}
+.mock-bar {
+  background: #141c14;
+  padding: 0.65rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-bottom: 1px solid var(--border);
+}
+.mock-dot {
+  width: 9px; height: 9px; border-radius: 50%;
+}
+.mock-dot:nth-child(1){background:#ff5f57}
+.mock-dot:nth-child(2){background:#febc2e}
+.mock-dot:nth-child(3){background:#28c840}
+.mock-url {
+  background: rgba(255,255,255,0.05);
+  flex: 1;
+  height: 20px;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  padding: 0 0.6rem;
+  font-size: 0.68rem;
+  color: rgba(244,249,244,0.3);
+  font-family: monospace;
+}
+.mock-body { padding: 1.2rem; }
+
+.product-grid-mock {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.6rem;
+}
+.product-card-mock {
+  background: #1a231a;
+  border: 1px solid rgba(0,232,90,0.08);
+  padding: 0.6rem;
+  border-radius: 2px;
+}
+.product-img-mock {
+  width: 100%;
+  aspect-ratio: 1;
+  margin-bottom: 0.5rem;
+  border-radius: 1px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+}
+.p1 { background: linear-gradient(135deg, #1f2d1f, #2d1f1f); }
+.p2 { background: linear-gradient(135deg, #1f1f2d, #1f2d1f); }
+.p3 { background: linear-gradient(135deg, #2d2d1f, #1f2d2d); }
+.p4 { background: linear-gradient(135deg, #2d1f2d, #1f2d1f); }
+.p5 { background: linear-gradient(135deg, #1f2d2d, #2d1f1f); }
+.p6 { background: linear-gradient(135deg, #2d2d1f, #1f1f2d); }
+.product-name-mock { font-size: 0.62rem; font-weight: 700; color: var(--white); margin-bottom: 0.2rem; }
+.product-price-mock { font-size: 0.58rem; color: var(--green); font-weight: 700; }
+.product-ship-mock { font-size: 0.55rem; color: var(--muted); }
+
+.mock-badge-ship {
+  margin-top: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(0,232,90,0.07);
+  border: 1px solid var(--border);
+  padding: 0.5rem 0.8rem;
+  font-size: 0.7rem;
+  color: var(--green);
+  font-weight: 700;
+}
+
+/* floating mini cards */
+.float-card {
+  position: absolute;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  padding: 0.7rem 1rem;
+  font-size: 0.75rem;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  white-space: nowrap;
+  font-weight: 600;
+}
+.float-card .fc-icon { font-size: 1.1rem; }
+.float-card .fc-label { color: var(--muted); font-size: 0.65rem; font-weight: 500; }
+.float-card .fc-val { color: var(--white); font-weight: 800; }
+.float-1 {
+  top: -1.5rem;
+  right: -2rem;
+  animation: float2 5s ease-in-out infinite;
+}
+.float-2 {
+  bottom: 2rem;
+  left: -2.5rem;
+  animation: float2 7s ease-in-out infinite reverse;
+}
+@keyframes float2 {
+  0%,100%{transform:translateY(0) rotate(-1deg)} 50%{transform:translateY(-8px) rotate(1deg)}
+}
+
+/* ── STATS ── */
+.stats-band {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.stat-cell {
+  padding: 2.8rem 4vw;
+  border-right: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+  transition: background 0.3s;
+}
+.stat-cell:last-child { border-right: none; }
+.stat-cell:hover { background: rgba(0,232,90,0.03); }
+.stat-num {
+  font-size: clamp(2.2rem, 3.5vw, 3.4rem);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  color: var(--green);
+  line-height: 1;
+  margin-bottom: 0.3rem;
+}
+.stat-label { font-size: 0.82rem; color: var(--muted); font-weight: 500; line-height: 1.4; }
+
+/* ── HOW IT WORKS ── */
+section { padding: 7rem 5vw; }
+.section-head {
+  margin-bottom: 4rem;
+}
+.section-kicker {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.section-kicker::after { content:''; flex:0 0 30px; height:1px; background:var(--green); }
+h2 {
+  font-size: clamp(2.2rem, 4vw, 3.8rem);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+}
+h2 .serif { font-family:'Instrument Serif',serif; font-style:italic; font-weight:400; color:var(--green); }
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 1.5px;
+  background: var(--border);
+}
+.step {
+  background: var(--black);
+  padding: 3rem 2.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.2s;
+}
+.step:hover { background: rgba(0,232,90,0.03); }
+.step-num {
+  font-size: 5rem;
+  font-weight: 900;
+  color: rgba(0,232,90,0.07);
+  line-height: 1;
+  margin-bottom: 1rem;
+  letter-spacing: -0.06em;
+}
+.step-icon { font-size: 2rem; margin-bottom: 1.2rem; }
+.step h3 {
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.8rem;
+}
+.step p { font-size: 0.9rem; line-height: 1.7; color: var(--muted); }
+.step-line {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 2px;
+  background: var(--green);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+.step:hover .step-line { transform: scaleX(1); }
+
+/* ── WHY SPOCKET ── */
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 1.5px;
+  background: var(--border);
+  margin-top: 3rem;
+}
+.why-cell {
+  background: var(--black);
+  padding: 2.5rem;
+  transition: background 0.2s;
+}
+.why-cell:hover { background: rgba(0,232,90,0.03); }
+.why-icon { font-size: 1.8rem; margin-bottom: 1rem; }
+.why-cell h4 {
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.6rem;
+}
+.why-cell p { font-size: 0.88rem; line-height: 1.65; color: var(--muted); }
+.why-cell .green { color: var(--green); font-weight: 700; }
+
+/* ── VS TABLE ── */
+.vs-section { background: #050905; }
+.vs-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 3rem;
+  font-size: 0.9rem;
+}
+.vs-table th {
+  padding: 1.2rem 1.5rem;
+  text-align: left;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  border-bottom: 2px solid var(--border);
+}
+.vs-table th:nth-child(2) { color: var(--green); border-bottom-color: var(--green); text-align: center; }
+.vs-table th:nth-child(3) { color: var(--muted); text-align: center; }
+.vs-table td {
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+  color: var(--muted);
+}
+.vs-table td:first-child { color: var(--white); font-weight: 600; }
+.vs-table td:nth-child(2) { text-align: center; }
+.vs-table td:nth-child(3) { text-align: center; color: rgba(244,249,244,0.25); }
+.vs-table tr:hover td { background: rgba(0,232,90,0.02); }
+.check { color: var(--green); font-size: 1rem; font-weight: 900; }
+.cross { color: rgba(244,249,244,0.2); }
+.vs-table tr:last-child td { border-bottom: none; }
+
+/* ── TESTIMONIALS ── */
+.testi-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 1.5rem;
+  margin-top: 3.5rem;
+}
+.testi {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  padding: 2rem;
+  position: relative;
+  transition: transform 0.2s, border-color 0.2s;
+}
+.testi:hover { transform: translateY(-4px); border-color: rgba(0,232,90,0.3); }
+.testi-stars { color: var(--green); font-size: 0.8rem; letter-spacing: 0.05em; margin-bottom: 1rem; }
+.testi-quote {
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: rgba(244,249,244,0.75);
+  margin-bottom: 1.5rem;
+  font-style: italic;
+  font-family: 'Instrument Serif', serif;
+}
+.testi-quote::before { content: '"'; font-size: 2rem; color: rgba(0,232,90,0.2); line-height: 0; vertical-align: -0.5rem; }
+.testi-author { display: flex; align-items: center; gap: 0.8rem; }
+.testi-avatar {
+  width: 38px; height: 38px;
+  background: var(--green);
+  color: var(--black);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 900; font-size: 0.85rem; flex-shrink: 0;
+}
+.testi-name { font-size: 0.85rem; font-weight: 800; }
+.testi-title { font-size: 0.72rem; color: var(--muted); }
+.testi-revenue {
+  position: absolute;
+  top: 1.2rem; right: 1.2rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--green);
+  background: rgba(0,232,90,0.08);
+  border: 1px solid var(--border);
+  padding: 0.25rem 0.6rem;
+  letter-spacing: 0.05em;
+}
+
+/* ── NICHE IDEAS ── */
+.niches {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 2rem;
+}
+.niche-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(0,232,90,0.05);
+  border: 1px solid var(--border);
+  color: var(--white);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  transition: background 0.15s, border-color 0.15s, transform 0.15s;
+  cursor: default;
+}
+.niche-tag:hover { background: rgba(0,232,90,0.12); border-color: rgba(0,232,90,0.4); transform: translateY(-2px); }
+.niche-tag span { color: var(--green); }
+
+/* ── PRICING CARD ── */
+.pricing-section { background: #050905; text-align: center; }
+.pricing-intro { font-size: 1.05rem; color: var(--muted); max-width: 50ch; margin: 0 auto 3.5rem; line-height: 1.7; }
+.offer-wrap {
+  max-width: 560px;
+  margin: 0 auto;
+  background: var(--card-bg);
+  border: 1px solid var(--green);
+  padding: 3.5rem;
+  position: relative;
+  box-shadow: 0 0 80px rgba(0,232,90,0.07);
+}
+.offer-ribbon {
+  position: absolute;
+  top: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--green);
+  color: var(--black);
+  font-size: 0.65rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.3rem 1.2rem;
+  white-space: nowrap;
+}
+.offer-title {
+  font-size: 1.7rem;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  margin: 1.5rem 0 0.5rem;
+}
+.offer-sub { font-size: 0.9rem; color: var(--muted); margin-bottom: 2rem; }
+
+.price-display {
+  font-size: 3.5rem;
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  color: var(--green);
+  line-height: 1;
+  margin-bottom: 0.25rem;
+}
+.price-note { font-size: 0.75rem; color: var(--muted); font-family: monospace; margin-bottom: 2rem; letter-spacing: 0.04em; }
+
+.offer-list {
+  list-style: none;
+  text-align: left;
+  margin-bottom: 2.5rem;
+}
+.offer-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+  padding: 0.65rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  font-size: 0.92rem;
+  color: rgba(244,249,244,0.75);
+}
+.offer-list li::before {
+  content: '✓';
+  color: var(--green);
+  font-weight: 900;
+  flex-shrink: 0;
+  margin-top: 0.05rem;
+}
+
+.btn-big {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  background: var(--green);
+  color: var(--black);
+  font-size: 1.1rem;
+  font-weight: 900;
+  letter-spacing: -0.01em;
+  padding: 1.15rem 2rem;
+  text-decoration: none;
+  width: 100%;
+  transition: background 0.2s, transform 0.15s;
+  margin-bottom: 1rem;
+}
+.btn-big:hover { background: #33ee77; transform: translateY(-2px); }
+.btn-big-ghost {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.88rem;
+  font-weight: 600;
+  padding: 0.9rem 2rem;
+  text-decoration: none;
+  width: 100%;
+  transition: border-color 0.2s, color 0.2s;
+}
+.btn-big-ghost:hover { border-color: var(--green); color: var(--green); }
+.guarantee-note {
+  margin-top: 1.5rem;
+  font-size: 0.72rem;
+  color: rgba(244,249,244,0.25);
+  font-family: monospace;
+  letter-spacing: 0.04em;
+}
+
+/* ── URGENCY BAR ── */
+.urgency-bar {
+  background: #1a0000;
+  border-top: 1px solid rgba(255,68,68,0.2);
+  border-bottom: 1px solid rgba(255,68,68,0.2);
+  padding: 1rem 5vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.urgency-text {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #ff7777;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.urgency-timer {
+  font-family: monospace;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--red);
+  background: rgba(255,68,68,0.1);
+  padding: 0.2rem 0.6rem;
+  border: 1px solid rgba(255,68,68,0.2);
+  min-width: 5ch;
+  text-align: center;
+}
+.urgency-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--red);
+  color: white;
+  font-weight: 800;
+  font-size: 0.82rem;
+  padding: 0.5rem 1.2rem;
+  text-decoration: none;
+  letter-spacing: 0.03em;
+  transition: opacity 0.2s;
+}
+.urgency-cta:hover { opacity: 0.85; }
+
+/* ── FINAL CTA ── */
+.final-section {
+  background: var(--green);
+  padding: 7rem 5vw;
+  text-align: center;
+}
+.final-section h2 {
+  color: var(--black);
+  font-size: clamp(2.2rem, 5vw, 4.5rem);
+  margin-bottom: 1.2rem;
+}
+.final-section h2 .outline {
+  -webkit-text-stroke: 2px var(--black);
+  color: transparent;
+}
+.final-section p { color: rgba(8,12,8,0.6); font-size: 1.1rem; max-width: 48ch; margin: 0 auto 2.5rem; line-height: 1.65; }
+.btn-dark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--black);
+  color: var(--green);
+  font-size: 1.05rem;
+  font-weight: 900;
+  padding: 1.15rem 2.8rem;
+  text-decoration: none;
+  margin: 0 0.4rem 0.8rem;
+  transition: transform 0.15s, opacity 0.2s;
+}
+.btn-dark:hover { transform: translateY(-2px); opacity: 0.9; }
+.btn-dark-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  border: 2px solid rgba(8,12,8,0.25);
+  color: var(--black);
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 1rem 2rem;
+  text-decoration: none;
+  margin: 0 0.4rem 0.8rem;
+  transition: border-color 0.2s, transform 0.15s;
+}
+.btn-dark-ghost:hover { border-color: var(--black); transform: translateY(-2px); }
+
+footer {
+  background: #050905;
+  padding: 2.5rem 5vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: gap;
+  gap: 1rem;
+  border-top: 1px solid var(--border);
+}
+.footer-logo { font-size: 1.1rem; font-weight: 900; color: var(--green); text-decoration: none; }
+.footer-logo span { color: var(--muted); }
+.footer-note { font-size: 0.72rem; color: var(--muted); font-family: monospace; }
+
+/* ── SCROLL REVEAL ── */
+.sr {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.sr.visible { opacity: 1; transform: translateY(0); }
+.sr-d1 { transition-delay: 0.1s; }
+.sr-d2 { transition-delay: 0.2s; }
+.sr-d3 { transition-delay: 0.3s; }
+.sr-d4 { transition-delay: 0.45s; }
+
+/* ── RESPONSIVE ── */
+@media(max-width:960px){
+  .hero{grid-template-columns:1fr;min-height:auto;padding:3rem 5vw}
+  .hero-visual{display:none}
+  .stats-band{grid-template-columns:repeat(2,1fr)}
+  .stat-cell:nth-child(2){border-right:none}
+  .stat-cell:nth-child(3){border-right:1px solid var(--border)}
+  .steps{grid-template-columns:1fr}
+  .why-grid{grid-template-columns:1fr}
+  .testi-grid{grid-template-columns:1fr}
+  h1{font-size:3rem}
+}
+@media(max-width:600px){
+  .stats-band{grid-template-columns:1fr 1fr}
+  h2{font-size:2.2rem}
+  .offer-wrap{padding:2rem 1.5rem}
+}
+</style>
+</head>
+<body>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker-inner">
+    <span>200,000+ entrepreneurs trust Spocket</span>
+    <span>Fast US & EU shipping — no long waits</span>
+    <span>Start FREE — no credit card required</span>
+    <span>Up to 60% off wholesale prices</span>
+    <span>1-click import to Shopify & WooCommerce</span>
+    <span>Branded invoicing included</span>
+    <span>200,000+ entrepreneurs trust Spocket</span>
+    <span>Fast US & EU shipping — no long waits</span>
+    <span>Start FREE — no credit card required</span>
+    <span>Up to 60% off wholesale prices</span>
+    <span>1-click import to Shopify & WooCommerce</span>
+    <span>Branded invoicing included</span>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="https://get.spocket.co/lj4qn74mjd1o" class="nav-logo">Spocket<span>.co</span></a>
+  <a href="https://get.spocket.co/lj4qn74mjd1o" class="nav-pill" target="_blank" rel="noopener">
+    Start Free →
+  </a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" style="padding-top:5rem;padding-bottom:5rem">
+  <div class="hero-bg-glow"></div>
+  <div class="hero-left">
+    <div class="eyebrow sr"><div class="eyebrow-dot"></div>The #1 Dropshipping Platform</div>
+    <h1 class="sr sr-d1">
+      Sell products.<br>
+      <span class="serif">Keep profits.</span><br>
+      Ship <span class="outline">fast.</span>
+    </h1>
+    <p class="hero-sub sr sr-d2">Spocket connects you with top US & EU suppliers so you can run a real eCommerce business — without buying inventory, packing boxes, or dealing with 6-week shipping times from overseas.</p>
+    <div class="cta-group sr sr-d3">
+      <a href="https://get.spocket.co/lj4qn74mjd1o" class="btn-main" target="_blank" rel="noopener">
+        <span>Start Your Free Store</span>
+        <span class="arrow">→</span>
+      </a>
+      <a href="#how-it-works" class="btn-ghost">See how it works ↓</a>
+    </div>
+    <div class="trust-row sr sr-d4">
+      <div class="trust-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+        No credit card needed
+      </div>
+      <div class="trust-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+        Setup in under 10 min
+      </div>
+      <div class="trust-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg>
+        200,000+ sellers
+      </div>
+    </div>
+  </div>
+
+  <!-- CSS Product Mockup -->
+  <div class="hero-visual sr sr-d2">
+    <div class="float-card float-1">
+      <div class="fc-icon">🚀</div>
+      <div>
+        <div class="fc-label">Avg. delivery time</div>
+        <div class="fc-val">3–5 days (US)</div>
+      </div>
+    </div>
+    <div class="float-card float-2">
+      <div class="fc-icon">💰</div>
+      <div>
+        <div class="fc-label">Avg. profit margin</div>
+        <div class="fc-val">30–60%</div>
+      </div>
+    </div>
+    <div class="mock-window">
+      <div class="mock-bar">
+        <div class="mock-dot"></div>
+        <div class="mock-dot"></div>
+        <div class="mock-dot"></div>
+        <div class="mock-url">app.spocket.co/products</div>
+      </div>
+      <div class="mock-body">
+        <div style="font-size:0.7rem;font-weight:700;color:var(--muted);margin-bottom:0.8rem;letter-spacing:0.06em;text-transform:uppercase;">Browse 100M+ Products</div>
+        <div class="product-grid-mock">
+          <div class="product-card-mock">
+            <div class="product-img-mock p1">👗</div>
+            <div class="product-name-mock">Linen Dress</div>
+            <div class="product-price-mock">$18.40</div>
+            <div class="product-ship-mock">🇺🇸 Ships in 3d</div>
+          </div>
+          <div class="product-card-mock">
+            <div class="product-img-mock p2">🕯️</div>
+            <div class="product-name-mock">Soy Candle Set</div>
+            <div class="product-price-mock">$12.20</div>
+            <div class="product-ship-mock">🇺🇸 Ships in 2d</div>
+          </div>
+          <div class="product-card-mock">
+            <div class="product-img-mock p3">⌚</div>
+            <div class="product-name-mock">Minimal Watch</div>
+            <div class="product-price-mock">$24.90</div>
+            <div class="product-ship-mock">🇬🇧 Ships in 4d</div>
+          </div>
+          <div class="product-card-mock">
+            <div class="product-img-mock p4">🎒</div>
+            <div class="product-name-mock">Canvas Tote</div>
+            <div class="product-price-mock">$9.80</div>
+            <div class="product-ship-mock">🇺🇸 Ships in 2d</div>
+          </div>
+          <div class="product-card-mock">
+            <div class="product-img-mock p5">💄</div>
+            <div class="product-name-mock">Lip Gloss Kit</div>
+            <div class="product-price-mock">$14.50</div>
+            <div class="product-ship-mock">🇺🇸 Ships in 3d</div>
+          </div>
+          <div class="product-card-mock">
+            <div class="product-img-mock p6">🏠</div>
+            <div class="product-name-mock">Ceramic Vase</div>
+            <div class="product-price-mock">$21.00</div>
+            <div class="product-ship-mock">🇩🇪 Ships in 5d</div>
+          </div>
+        </div>
+        <div class="mock-badge-ship">
+          ✓ All products ship from US or EU suppliers
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- URGENCY BAR -->
+<div class="urgency-bar">
+  <div class="urgency-text">🔥 Free plan spots filling fast —</div>
+  <div>
+    <span style="font-size:0.78rem;color:#ff7777;font-weight:600;">Offer resets in: </span>
+    <span class="urgency-timer" id="timer">23:59:47</span>
+  </div>
+  <a href="https://get.spocket.co/lj4qn74mjd1o" class="urgency-cta" target="_blank" rel="noopener">Claim Free Access →</a>
+</div>
+
+<!-- STATS -->
+<div class="stats-band sr">
+  <div class="stat-cell">
+    <div class="stat-num">200K+</div>
+    <div class="stat-label">Active entrepreneurs using Spocket</div>
+  </div>
+  <div class="stat-cell">
+    <div class="stat-num">1M+</div>
+    <div class="stat-label">Products from vetted US & EU suppliers</div>
+  </div>
+  <div class="stat-cell">
+    <div class="stat-num">60%</div>
+    <div class="stat-label">Average discount off retail prices</div>
+  </div>
+  <div class="stat-cell">
+    <div class="stat-num">3–5d</div>
+    <div class="stat-label">Average US delivery time</div>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<section id="how-it-works">
+  <div class="section-head sr">
+    <div class="section-kicker">How it works</div>
+    <h2>Three steps to your<br><span class="serif">first sale.</span></h2>
+  </div>
+  <div class="steps">
+    <div class="step sr">
+      <div class="step-line"></div>
+      <div class="step-num">01</div>
+      <div class="step-icon">🔗</div>
+      <h3>Connect Your Store</h3>
+      <p>Link Spocket to Shopify, WooCommerce, Wix, BigCommerce, or Squarespace in one click. No developer needed. You're live in minutes, not weeks.</p>
+    </div>
+    <div class="step sr sr-d1">
+      <div class="step-line"></div>
+      <div class="step-num">02</div>
+      <div class="step-icon">🛍️</div>
+      <h3>Import Products Instantly</h3>
+      <p>Browse 1M+ products from US & EU suppliers. Click "Add to Store" and it's live. Set your own prices and keep 30–60% profit margins on every sale.</p>
+    </div>
+    <div class="step sr sr-d2">
+      <div class="step-line"></div>
+      <div class="step-num">03</div>
+      <div class="step-icon">📦</div>
+      <h3>Sell — We Handle the Rest</h3>
+      <p>When a customer orders, Spocket automatically notifies your supplier. They pack and ship with YOUR branded invoice. You collect payment, they do the work.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHY SPOCKET -->
+<section style="background:#050905">
+  <div class="section-head sr">
+    <div class="section-kicker">Why Spocket wins</div>
+    <h2>Not your average<br><span class="serif">dropshipping platform.</span></h2>
+  </div>
+  <div class="why-grid">
+    <div class="why-cell sr">
+      <div class="why-icon">🇺🇸🇪🇺</div>
+      <h4>Real Fast Shipping</h4>
+      <p>80% of Spocket suppliers are based in the US and EU. That means <span class="green">2–7 day delivery</span> instead of the 3–6 week nightmare of AliExpress. Happy customers = repeat buyers.</p>
+    </div>
+    <div class="why-cell sr sr-d1">
+      <div class="why-icon">💸</div>
+      <h4>Massive Margins Built In</h4>
+      <p>Spocket negotiates wholesale pricing directly with suppliers. You get products at <span class="green">30–60% below retail</span>, so you can price competitively and still profit on every order.</p>
+    </div>
+    <div class="why-cell sr sr-d2">
+      <div class="why-icon">🏷️</div>
+      <h4>Your Brand on Every Package</h4>
+      <p>Branded invoices go inside every shipment — with your store name, logo, and thank-you note. Customers think it came <span class="green">straight from you.</span> Build loyalty from day one.</p>
+    </div>
+    <div class="why-cell sr sr-d3">
+      <div class="why-icon">⚡</div>
+      <h4>One-Click Product Import</h4>
+      <p>See a product you want to sell? One click and it's in your store — with title, description, images, and pricing all pre-filled. <span class="green">No copy-paste, no manual work.</span></p>
+    </div>
+    <div class="why-cell sr">
+      <div class="why-icon">🤖</div>
+      <h4>Automated Order Processing</h4>
+      <p>Every order is automatically forwarded to your supplier. No emails, no manual work. Orders <span class="green">fulfill themselves</span> while you focus on marketing and growing.</p>
+    </div>
+    <div class="why-cell sr sr-d1">
+      <div class="why-icon">🔌</div>
+      <h4>Works Where You Work</h4>
+      <p>Native integrations with Shopify, WooCommerce, Wix, BigCommerce, Squarespace & more. <span class="green">Works with your existing store</span> — nothing to rebuild or migrate.</p>
+    </div>
+  </div>
+</section>
+
+<!-- VS TABLE -->
+<section class="vs-section">
+  <div class="section-head sr">
+    <div class="section-kicker">The comparison</div>
+    <h2>Spocket vs.<br><span class="serif">everyone else.</span></h2>
+  </div>
+  <table class="vs-table sr">
+    <thead>
+      <tr>
+        <th>Feature</th>
+        <th>Spocket ✓</th>
+        <th>AliExpress / Others</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Delivery time</td>
+        <td><span class="check">2–7 days (US/EU)</span></td>
+        <td><span class="cross">3–6 weeks</span></td>
+      </tr>
+      <tr>
+        <td>Supplier location</td>
+        <td><span class="check">US & EU verified</span></td>
+        <td><span class="cross">Mostly overseas</span></td>
+      </tr>
+      <tr>
+        <td>Branded invoicing</td>
+        <td><span class="check">Included on all plans</span></td>
+        <td><span class="cross">Rarely available</span></td>
+      </tr>
+      <tr>
+        <td>Product quality vetting</td>
+        <td><span class="check">Every supplier audited</span></td>
+        <td><span class="cross">Inconsistent</span></td>
+      </tr>
+      <tr>
+        <td>1-click store import</td>
+        <td><span class="check">Yes — instant</span></td>
+        <td><span class="cross">Manual or limited</span></td>
+      </tr>
+      <tr>
+        <td>Auto order processing</td>
+        <td><span class="check">Full automation</span></td>
+        <td><span class="cross">Often manual</span></td>
+      </tr>
+      <tr>
+        <td>Free plan available</td>
+        <td><span class="check">Yes — start today</span></td>
+        <td><span class="cross">Varies</span></td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- NICHE IDEAS -->
+<section>
+  <div class="section-head sr">
+    <div class="section-kicker">What can you sell?</div>
+    <h2>Any niche.<br><span class="serif">Infinite products.</span></h2>
+    <p style="color:var(--muted);font-size:1rem;max-width:50ch;margin-top:1rem;line-height:1.7;">Spocket has suppliers across every category. These are the hottest niches crushing it right now:</p>
+  </div>
+  <div class="niches sr">
+    <div class="niche-tag"><span>🕯️</span> Home Decor</div>
+    <div class="niche-tag"><span>👗</span> Fashion & Apparel</div>
+    <div class="niche-tag"><span>💄</span> Beauty & Skincare</div>
+    <div class="niche-tag"><span>🐾</span> Pet Products</div>
+    <div class="niche-tag"><span>🏋️</span> Fitness & Wellness</div>
+    <div class="niche-tag"><span>🧸</span> Baby & Kids</div>
+    <div class="niche-tag"><span>💍</span> Jewelry</div>
+    <div class="niche-tag"><span>🖥️</span> Tech Accessories</div>
+    <div class="niche-tag"><span>🌿</span> Eco & Sustainable</div>
+    <div class="niche-tag"><span>🎁</span> Gifts & Seasonal</div>
+    <div class="niche-tag"><span>🍳</span> Kitchen & Cooking</div>
+    <div class="niche-tag"><span>🎨</span> Art & Crafts</div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section style="background:#050905">
+  <div class="section-head sr">
+    <div class="section-kicker">Real results</div>
+    <h2>They started with zero.<br><span class="serif">Now look.</span></h2>
+  </div>
+  <div class="testi-grid">
+    <div class="testi sr">
+      <div class="testi-revenue">$11,400 / mo</div>
+      <div class="testi-stars">★★★★★</div>
+      <div class="testi-quote">I launched my home decor store with Spocket in a weekend. Within 3 months I was making more than my old 9-to-5. The US suppliers are game-changing — my customers love the fast shipping and keep coming back.</div>
+      <div class="testi-author">
+        <div class="testi-avatar">MR</div>
+        <div>
+          <div class="testi-name">Marcus R.</div>
+          <div class="testi-title">Home Decor Store Owner</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi sr sr-d1">
+      <div class="testi-revenue">$6,800 / mo</div>
+      <div class="testi-stars">★★★★★</div>
+      <div class="testi-quote">I tried AliExpress first and got destroyed by bad reviews about slow shipping. Switched to Spocket and my refund rate dropped to almost zero. The branded invoicing makes my tiny store look like a real brand.</div>
+      <div class="testi-author">
+        <div class="testi-avatar">JL</div>
+        <div>
+          <div class="testi-name">Jamie L.</div>
+          <div class="testi-title">Beauty & Skincare Store</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi sr sr-d2">
+      <div class="testi-revenue">$23,000 / mo</div>
+      <div class="testi-stars">★★★★★</div>
+      <div class="testi-quote">Spocket is literally the only reason my dropshipping business is profitable. The product margins are insane compared to other platforms, and automation handles every order while I focus on ads. Set it and forget it.</div>
+      <div class="testi-author">
+        <div class="testi-avatar">AT</div>
+        <div>
+          <div class="testi-name">Alex T.</div>
+          <div class="testi-title">Multi-niche Store, 3 years</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING / OFFER -->
+<section class="pricing-section sr">
+  <div class="section-kicker" style="justify-content:center">Your plan</div>
+  <h2 style="margin-bottom:1rem">Start free.<br><span class="serif">Scale when you're ready.</span></h2>
+  <p class="pricing-intro">No credit card. No commitment. Test the platform, import products, and make your first sale before spending a single dollar.</p>
+
+  <div class="offer-wrap">
+    <div class="offer-ribbon">⭐ Most Popular Starting Point</div>
+    <div class="offer-title">Free Starter Plan</div>
+    <div class="offer-sub">Everything you need to validate your first product and store</div>
+    <div class="price-display">$0</div>
+    <div class="price-note">/ forever free — upgrade when you're ready</div>
+    <ul class="offer-list">
+      <li>Access to 25 unique products</li>
+      <li>1-click import to any supported store</li>
+      <li>Branded invoicing on all orders</li>
+      <li>Works with Shopify, WooCommerce & more</li>
+      <li>US & EU supplier access</li>
+      <li>Automated order processing</li>
+      <li>Upgrade to Pro anytime for unlimited products</li>
+    </ul>
+    <a href="https://get.spocket.co/lj4qn74mjd1o" class="btn-big" target="_blank" rel="noopener">
+      Start Free — No Card Needed →
+    </a>
+    <a href="https://get.spocket.co/lj4qn74mjd1o" class="btn-big-ghost" target="_blank" rel="noopener">
+      View all plans
+    </a>
+    <div class="guarantee-note">✦ FREE TO START · CANCEL ANYTIME · NO HIDDEN FEES</div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-section sr">
+  <h2>Your store could be<br><span class="outline">live tonight.</span></h2>
+  <p>Thousands of people just like you started their first dropshipping store with zero experience. The only difference between them and you is they clicked start.</p>
+  <div>
+    <a href="https://get.spocket.co/lj4qn74mjd1o" class="btn-dark" target="_blank" rel="noopener">Start Free Right Now →</a>
+    <a href="https://get.spocket.co/lj4qn74mjd1o" class="btn-dark-ghost" target="_blank" rel="noopener">Learn more first</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="https://get.spocket.co/lj4qn74mjd1o" class="footer-logo">Spocket<span>.co</span></a>
+  <span class="footer-note">Affiliate link — Spocket is an independent product. Results vary.</span>
+</footer>
+
+<script>
+// Scroll reveal
+const sr = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) e.target.classList.add('visible');
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.sr').forEach(el => sr.observe(el));
+
+// Countdown timer
+function updateTimer() {
+  const now = new Date();
+  const midnight = new Date();
+  midnight.setHours(23, 59, 59, 0);
+  let diff = midnight - now;
+  if (diff < 0) diff += 86400000;
+  const h = String(Math.floor(diff / 3600000)).padStart(2,'0');
+  const m = String(Math.floor((diff % 3600000) / 60000)).padStart(2,'0');
+  const s = String(Math.floor((diff % 60000) / 1000)).padStart(2,'0');
+  const el = document.getElementById('timer');
+  if (el) el.textContent = `${h}:${m}:${s}`;
+}
+updateTimer();
+setInterval(updateTimer, 1000);
+
+// Smooth hover on nav CTA
+document.querySelectorAll('a[href*="spocket"]').forEach(a => {
+  a.addEventListener('mouseenter', () => a.style.transition = 'all 0.2s ease');
+});
+</script>
+</body>
+</html>

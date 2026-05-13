@@ -48,15 +48,26 @@
     .page-section { display: none; }
     .page-section.active { display: block; }
 
-    /* ── YOUR EXISTING STYLES ── */
+    /* ── NAVIGATION ── */
     nav { display: flex; align-items: center; justify-content: space-between; padding: 1.2rem 5vw; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 200; background: rgba(8,12,8,0.93); backdrop-filter: blur(20px); }
     .nav-logo { font-size: 1.5rem; font-weight: 900; color: var(--green); text-decoration: none; }
     .nav-pill { background: var(--green); color: var(--black); padding: 0.55rem 1.3rem; text-decoration: none; font-weight: 700; font-size: 0.72rem; text-transform: uppercase; }
+    .nav-links { display: flex; gap: 20px; align-items: center; }
+    .nav-links a { color: white; text-decoration: none; font-size: 0.8rem; font-weight: 700; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--green); }
+
+    /* ── HERO & TYPOGRAPHY ── */
     .hero { min-height: 80vh; display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 4rem; padding: 5rem 5vw; }
     h1 { font-size: clamp(3rem, 5.5vw, 5.6rem); font-weight: 900; line-height: 1.0; margin-bottom: 1.6rem; }
     .serif { font-family: 'Instrument Serif', serif; font-style: italic; color: var(--green); }
     .outline { -webkit-text-stroke: 2px var(--white); color: transparent; }
-    .btn-main { background: var(--green); color: var(--black); padding: 1.1rem 2.4rem; text-decoration: none; font-weight: 900; display: inline-flex; align-items: center; gap: 0.7rem; }
+    .btn-main { background: var(--green); color: var(--black); padding: 1.1rem 2.4rem; text-decoration: none; font-weight: 900; display: inline-flex; align-items: center; gap: 0.7rem; cursor: pointer; border: none; }
+    
+    /* ── BLOG SECTION STYLES ── */
+    .blog-post { margin-bottom: 4rem; border-bottom: 1px solid var(--border); padding-bottom: 3rem; }
+    .blog-meta { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; color: var(--green); margin-bottom: 1rem; font-weight: 800; }
+    .blog-content { color: #cbd5cb; line-height: 1.8; font-size: 1.1rem; }
+
     .vs-table { width: 100%; border-collapse: collapse; margin-top: 3rem; }
     .vs-table td, .vs-table th { padding: 1.2rem; border-bottom: 1px solid var(--border); text-align: left; }
     .check { color: var(--green); font-weight: 900; }
@@ -84,8 +95,9 @@
 
 <nav>
   <a href="#" onclick="route('home')" class="nav-logo">Spocket<span>.co</span></a>
-  <div style="display:flex; gap: 15px;">
-    <a href="#" onclick="route('pricing')" style="color:white; text-decoration:none; font-size:0.8rem; font-weight:700;">PRICING</a>
+  <div class="nav-links">
+    <a href="#" onclick="route('blog')">INSIGHTS</a>
+    <a href="#" onclick="route('pricing')">PRICING</a>
     <a href="https://get.spocket.co/lj4qn74mjd1o" class="nav-pill" target="_blank">Start Free →</a>
   </div>
 </nav>
@@ -100,7 +112,6 @@
       <a href="https://get.spocket.co/lj4qn74mjd1o" class="btn-main">Start Your Free Store →</a>
     </div>
     <div class="hero-visual">
-       <!-- [Your Product Mockup CSS remains here] -->
        <div style="background:var(--card-bg); border:1px solid var(--green); padding:2rem; border-radius:10px;">
           <p style="color:var(--green); font-weight:800;">US SUPPLIER FEED</p>
           <p style="font-size:0.8rem;">Verified Premium Products</p>
@@ -138,6 +149,18 @@
   </section>
 </main>
 
+<!-- PAGE: DAILY BLOG (AI AUTO-GENERATED) -->
+<main id="page-blog" class="page-section">
+  <section style="padding: 5rem 5vw; max-width: 1000px; margin: 0 auto;">
+    <div class="meta" style="margin-bottom: 1rem; color: var(--green); font-weight: 800; letter-spacing: 2px;">AUTHORITY BLOG</div>
+    <h1 style="margin-bottom: 4rem;">E-commerce <span class="serif">Insights</span></h1>
+    
+    <!-- BLOG_START -->
+    <!-- The Python generator will inject content below this line -->
+    
+  </section>
+</main>
+
 <footer>
   <p>&copy; 2026 DropShip Insider. Powered by Spocket. <br> 
   <span style="opacity:0.5">Affiliate Disclosure: We may earn a commission from links on this page.</span></p>
@@ -153,16 +176,17 @@
     'pricing': {
       title: 'Spocket Pricing 2026 — Start Dropshipping for Free',
       desc: 'Compare Spocket plans. From Free to Empire, find the right fit for your dropshipping business.'
+    },
+    'blog': {
+      title: 'Dropshipping Strategy Blog — Daily E-commerce Insights',
+      desc: 'Expert guides on scaling your store with fast-shipping US and EU suppliers.'
     }
   };
 
   function route(pageId) {
-    // Hide all
     document.querySelectorAll('.page-section').forEach(p => p.classList.remove('active'));
-    // Show target
     document.getElementById('page-' + pageId).classList.add('active');
     
-    // Update SEO
     if(seoData[pageId]) {
       document.title = seoData[pageId].title;
       document.getElementById('page-desc').setAttribute('content', seoData[pageId].desc);
@@ -170,21 +194,17 @@
     window.scrollTo(0,0);
   }
 
-  // Timer Script
+  // Timer Script (for any countdowns needed)
   function startTimer(duration, display) {
     var timer = duration, hours, minutes, seconds;
     setInterval(function () {
       hours = parseInt(timer / 3600, 10);
       minutes = parseInt((timer % 3600) / 60, 10);
       seconds = parseInt(timer % 60, 10);
-      display.textContent = hours + ":" + (minutes < 10 ? "0" + minutes : minutes) + ":" + (seconds < 10 ? "0" + seconds : seconds);
+      if(display) display.textContent = hours + ":" + (minutes < 10 ? "0" + minutes : minutes) + ":" + (seconds < 10 ? "0" + seconds : seconds);
       if (--timer < 0) timer = duration;
     }, 1000);
   }
-  window.onload = function () {
-    var timerDisplay = document.querySelector('#timer');
-    if(timerDisplay) startTimer(86399, timerDisplay);
-  };
 </script>
 
 </body>

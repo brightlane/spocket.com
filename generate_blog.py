@@ -26,15 +26,17 @@ def generate_content():
         messages=[{"role": "user", "content": prompt}]
     )
     
-    content = response.choices[0].message.content
+    raw_content = response.choices[0].message.content
+    # Fix: Perform replacement outside the f-string to avoid SyntaxError
+    formatted_content = raw_content.replace('\n', '<br>')
     
     # 3. Create the HTML Block
     blog_html = f"""
-    <div class="blog-post" style="margin-bottom: 4rem; border-bottom: 1px solid var(--border); padding-bottom: 2rem;">
-        <div class="meta">{today} • Daily Insight</div>
+    <div class="blog-post">
+        <div class="blog-meta">{today} • Daily Insight</div>
         <h2 style="font-size: 2.5rem; margin: 1rem 0;">{topic}</h2>
-        <div class="content" style="color: var(--muted); line-height: 1.8;">
-            {content.replace('\n', '<br>')}
+        <div class="blog-content">
+            {formatted_content}
         </div>
         <a href="{AFFILIATE_LINK}" class="btn-main" style="margin-top: 1.5rem;">Try Spocket Free →</a>
     </div>
@@ -45,14 +47,14 @@ def update_index(new_html):
     with open("index.html", "r") as f:
         lines = f.readlines()
 
-    # This inserts the new blog post right after a specific marker in your HTML
     with open("index.html", "w") as f:
         for line in lines:
             f.write(line)
+            # The script looks for this exact comment in your index.html
             if "<!-- BLOG_START -->" in line:
                 f.write(new_html)
 
 if __name__ == "__main__":
     new_post = generate_content()
     update_index(new_post)
-    print("Daily blog generated and injected.")
+    print("Daily blog generated and injected successfully.")
